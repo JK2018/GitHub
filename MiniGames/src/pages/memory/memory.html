@@ -1,0 +1,36 @@
+<!--
+  Generated template for the MemoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="head">
+  <br>
+  <ion-navbar>
+    <ion-title class="titre">Memory Game</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="body">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Moves :</ion-col>
+      <ion-col>{{numberOfMoves}}</ion-col>
+      <ion-col>found :</ion-col>
+      <ion-col>{{foundCards}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let card of cardList; let pos = index" (click)="flipCard(card, pos)">
+        <img [src]="card.img" class="card">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <button ion-button full clear class="scoreNew" [disabled]="foundCards!=numberOfCards" (click)="replay()"> Play Again </button>
+
+</ion-content>
